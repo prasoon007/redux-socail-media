@@ -11,7 +11,7 @@ export const AddPostForm = () => {
   const onTitleChanged = e => setTitle(e.target.value)
   const onContentChanged = e => setContent(e.target.value)
   const onClickHandle = () => {
-      if(title & content ) {
+      if(title && content ) {
           dispatch(
               addedPost({
                   id: nanoid(),
