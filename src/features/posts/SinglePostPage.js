@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export const SinglePostPage = ({ match }) => {
@@ -7,7 +8,6 @@ export const SinglePostPage = ({ match }) => {
   const post = useSelector((state) =>
     state.posts.find((post) => post.id === postId)
   )
-  console.log(match);
   if (!post) {
     return (
       <section>
@@ -21,6 +21,9 @@ export const SinglePostPage = ({ match }) => {
       <article className="post">
         <h2>{post.title}</h2>
         <p className="post-content">{post.content}</p>
+        <Link to={`/editPosts/${post.id}`} className="button muted-button">
+          Edit Post
+        </Link>
       </article>
     </section>
   )
